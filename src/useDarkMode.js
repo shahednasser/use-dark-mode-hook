@@ -5,7 +5,18 @@ function useDarkMode ({initialValue = false, darkModeClass = 'dark', lightModeCl
     const elm = document.querySelector(element)
 
     const toggleDarkMode = function (on = true) {
-        setDarkMode(on)
+        const theme = on ? darkModeClass : lightModeClass
+        if (!elm.classList.contains(theme)) {
+            elm.classList.add(theme)
+            const oppositeTheme = on ? lightModeClass : darkModeClass
+            if (elm.classList.contains(oppositeTheme)) {
+                elm.classList.remove(oppositeTheme)
+            }
+        }
+        localStorage.setItem('theme', theme)
+        if (isDarkMode !== on) {
+            setDarkMode(on)
+        }
     }
 
     useEffect(() => {
@@ -15,18 +26,6 @@ function useDarkMode ({initialValue = false, darkModeClass = 'dark', lightModeCl
         }
         toggleDarkMode(theme === darkModeClass)
     }, [lightModeClass, darkModeClass])
-
-    useEffect(() => {
-        const theme = isDarkMode ? darkModeClass : lightModeClass
-        if (!elm.classList.contains(theme)) {
-            elm.classList.add(theme)
-            const oppositeTheme = isDarkMode ? lightModeClass : darkModeClass
-            if (elm.classList.contains(oppositeTheme)) {
-                elm.classList.remove(oppositeTheme)
-            }
-        }
-        localStorage.setItem('theme', theme)
-    }, [isDarkMode, elm, darkModeClass, lightModeClass])
     
     if (!elm) {
         console.error(`useDarkMode ERROR: ${element} is not defined in the document`)
