@@ -1,0 +1,33 @@
+{
+  "name": "use-dark-mode-hook",
+  "version": "1.0.0",
+  "description": "useDarkMode Custom Hook for React",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shahednasser/use-dark-mode-hook.git"
+  },
+  "main": "src/useDarkMode.js",
+  "types": "src/useDarkMode.d.ts",
+  "keywords": [
+    "react",
+    "custom",
+    "hook",
+    "dark",
+    "mode"
+  ],
+  "files": [
+    "src/"
+  ],
+  "author": "Shahed Nasser",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shahednasser/use-dark-mode-hook/issues"
+  },
+  "homepage": "https://github.com/shahednasser/use-dark-mode-hook#readme",
+  "devDependencies": {
+    "react": "^17.0.1"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17"
+  }
+}
