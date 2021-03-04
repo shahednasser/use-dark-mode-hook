@@ -4,6 +4,6 @@ interface Options {
     lightModeClass?: string;
     element?: string;
 }
-declare module 'use-dark-mode' {
+declare module 'use-dark-mode-hook' {
     export default function useDarkMode(options: Options): [boolean, Function]
 }
