@@ -1,6 +1,6 @@
 {
   "name": "use-dark-mode-hook",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "useDarkMode Custom Hook for React",
   "repository": {
     "type": "git",
