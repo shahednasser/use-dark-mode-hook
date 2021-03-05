@@ -78,6 +78,15 @@ You can pass to `useDarkMode` the following options:
 | lightModeClass | string  | the class that should be given when light mode                  | light   |
 | element        | string  | the selector of the element that the class should be applied to | body    |
 
+```js
+useDarkMode({
+    initialValue: false,
+    darkModeClass: 'dark',
+    lightModeClass: 'light',
+    element: 'body'
+})
+```
+
 
 ### DarkModeToggler
 
