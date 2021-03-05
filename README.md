@@ -101,8 +101,7 @@ function MyComponent () {
     }
 
     return (
-        <DarkModeToggler isDarkMode={value} toggleDarkMode={toggleDarkMode}>
-        </DarkModeToggler>
+        <DarkModeToggler isDarkMode={value} toggleDarkMode={toggleDarkMode} />
     )
 }
 ```
