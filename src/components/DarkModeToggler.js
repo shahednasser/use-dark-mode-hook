@@ -1,7 +1,6 @@
 import React from 'react'
 import * as DarkIcon from './icons/dark.svg'
 import * as LightIcon from './icons/light.svg'
-import { ReactSVG } from 'react-svg'
 
 function DarkModeToggler({isDarkMode, toggleDarkMode, buttonClassName = ""}) {
     return (
