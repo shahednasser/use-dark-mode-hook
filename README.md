@@ -6,7 +6,7 @@ A simple library to add dark mode functionality to your React projects!
 
 ![Demo](./demo.gif)
 
-This library provides a custom hoom `useDarkMode` and a button toggler component `DarkModeToggler`. You can use them together or use a different button toggler component. However, this library does **not** provide any styling regarding dark and light mode. You have to do that yourself.
+This library provides a custom hook `useDarkMode` and a button toggler component `DarkModeToggler`. You can use them together or use a different button toggler component. However, this library does **not** provide any styling regarding dark and light mode. You have to do that yourself.
 
 By default, `useDarkMode` will apply either `dark` or `light` class to the `body` of the document based on the choice of the user.
 
