@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-function useDarkMode ({initialValue = false, darkModeClass = 'dark', lightModeClass = 'light', element = 'body'} = {}) {
+export const useDarkMode = function ({initialValue = false, darkModeClass = 'dark', lightModeClass = 'light', element = 'body'} = {}) {
     const [isDarkMode, setDarkMode] = useState(initialValue)
     const elm = document.querySelector(element)
 
@@ -34,5 +34,3 @@ function useDarkMode ({initialValue = false, darkModeClass = 'dark', lightModeCl
 
     return [isDarkMode, toggleDarkMode]
 }
-
-export default useDarkMode

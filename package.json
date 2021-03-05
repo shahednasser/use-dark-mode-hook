@@ -6,8 +6,13 @@
     "type": "git",
     "url": "git+https://github.com/shahednasser/use-dark-mode-hook.git"
   },
-  "main": "src/useDarkMode.js",
-  "types": "src/useDarkMode.d.ts",
+  "scripts": {
+    "prebuild": "npm i",
+    "build": "babel src --out-dir dist",
+    "postbuild": "copyfiles -u 1 ./src/index.d.ts ./dist"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "keywords": [
     "react",
     "custom",
@@ -16,7 +21,7 @@
     "mode"
   ],
   "files": [
-    "src/"
+    "dist"
   ],
   "author": "Shahed Nasser",
   "license": "MIT",
@@ -25,9 +30,19 @@
   },
   "homepage": "https://github.com/shahednasser/use-dark-mode-hook#readme",
   "devDependencies": {
-    "react": "^17.0.1"
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/polyfill": "^7.8.3",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-react": "^7.8.3",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-inline-react-svg": "^2.0.1",
+    "copyfiles": "^2.4.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   },
   "peerDependencies": {
-    "react": "^16.8.0 || ^17"
+    "react": "^16.8.0 || ^17.0.1",
+    "react-dom": "^16.8.0 || ^17.0.1"
   }
 }
