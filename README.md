@@ -96,7 +96,7 @@ import { DarkModeToggler } from 'use-dark-mode-hook'
 function MyComponent () {
     //some code
 
-    function toggleDarkMode () {
+    function toggleDarkMode (checked) {
         //logic to toggle dark mode
     }
 
