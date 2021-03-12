@@ -4,10 +4,7 @@
   "description": "useDarkMode Custom Hook for React",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shahednasser/use-dark-mode-hook.git"
-  },
-  "publishConfig": {
-    "registry":"https://npm.pkg.github.com"
+    "url": "https://github.com/shahednasser/use-dark-mode-hook.git"
   },
   "scripts": {
     "prebuild": "npm i",
