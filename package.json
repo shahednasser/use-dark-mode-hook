@@ -6,6 +6,9 @@
     "type": "git",
     "url": "git+https://github.com/shahednasser/use-dark-mode-hook.git"
   },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com"
+  },
   "scripts": {
     "prebuild": "npm i",
     "build": "babel src --out-dir dist",
