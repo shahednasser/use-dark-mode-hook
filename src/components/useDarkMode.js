@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export const useDarkMode = function ({initialValue = false, darkModeClass = 'dark', lightModeClass = 'light', element = 'body', debug = 'false'} = {}) {
+export const useDarkMode = function ({initialValue = false, darkModeClass = 'dark', lightModeClass = 'light', element = 'body', debug = false} = {}) {
     const [isDarkMode, setDarkMode] = useState(initialValue)
     const [elm, setElm] = useState(null)
     const [_document, setDocument] = useState(null)
