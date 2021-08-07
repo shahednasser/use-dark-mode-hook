@@ -47,7 +47,7 @@ export const useDarkMode = function ({initialValue = false, darkModeClass = 'dar
             theme = lightModeClass //default value
         }
         toggleDarkMode(theme === darkModeClass)
-    }, [lightModeClass, darkModeClass])
+    }, [lightModeClass, darkModeClass, elm])
 
     return [isDarkMode, toggleDarkMode]
 }
