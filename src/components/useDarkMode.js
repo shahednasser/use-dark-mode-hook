@@ -19,11 +19,23 @@ export const useDarkMode = function ({initialValue = false, darkModeClass = 'dar
         }
     }
 
-    useEffect(() => {
+    function setElementFromDocument () {
         if (document) {
             setElm(document.querySelector(element));
         }
-    }, [element, document])
+    }
+
+    useEffect(() => {
+        window.addEventListener('load', setElementFromDocument);
+
+        return () => {
+            window.removeEventListener('load', setElementFromDocument);
+        }
+    }, []);
+
+    useEffect(() => {
+        setElementFromDocument();
+    }, [element])
 
     useEffect(() => {
         let theme = localStorage.getItem('theme')
