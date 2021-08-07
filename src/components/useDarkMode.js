@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 export const useDarkMode = function ({initialValue = false, darkModeClass = 'dark', lightModeClass = 'light', element = 'body'} = {}) {
     const [isDarkMode, setDarkMode] = useState(initialValue)
     const [elm, setElm] = useState(null)
+    const [_document, setDocument] = useState(null)
 
     const toggleDarkMode = function (on = true) {
         const theme = on ? darkModeClass : lightModeClass
@@ -19,23 +20,22 @@ export const useDarkMode = function ({initialValue = false, darkModeClass = 'dar
         }
     }
 
-    function setElementFromDocument () {
-        if (document) {
-            setElm(document.querySelector(element));
-        }
-    }
+    useEffect(() => {
+        setDocument(document);
+    }, [])
 
     useEffect(() => {
-        window.addEventListener('load', setElementFromDocument);
-
-        return () => {
-            window.removeEventListener('load', setElementFromDocument);
+        if (_document) {
+            setElm(_document.querySelector(element));
         }
-    }, []);
+    }, [element, _document])
 
     useEffect(() => {
-        setElementFromDocument();
-    }, [element])
+        if (!elm) {
+            console.error(`useDarkMode ERROR: ${element} is not defined in the document`)
+            return
+        }
+    }, [elm])
 
     useEffect(() => {
         let theme = localStorage.getItem('theme')
@@ -44,11 +44,6 @@ export const useDarkMode = function ({initialValue = false, darkModeClass = 'dar
         }
         toggleDarkMode(theme === darkModeClass)
     }, [lightModeClass, darkModeClass])
-    
-    if (!elm) {
-        console.error(`useDarkMode ERROR: ${element} is not defined in the document`)
-        return
-    }
 
     return [isDarkMode, toggleDarkMode]
 }
