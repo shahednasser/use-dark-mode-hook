@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export const useDarkMode = function ({initialValue = false, darkModeClass = 'dark', lightModeClass = 'light', element = 'body'} = {}) {
+export const useDarkMode = function ({initialValue = false, darkModeClass = 'dark', lightModeClass = 'light', element = 'body', debug = 'false'} = {}) {
     const [isDarkMode, setDarkMode] = useState(initialValue)
     const [elm, setElm] = useState(null)
     const [_document, setDocument] = useState(null)
@@ -31,11 +31,15 @@ export const useDarkMode = function ({initialValue = false, darkModeClass = 'dar
     }, [element, _document])
 
     useEffect(() => {
-        if (!elm) {
-            console.error(`useDarkMode ERROR: ${element} is not defined in the document`)
-            return
+        if (debug) {
+            if (!elm) {
+                console.error(`useDarkMode ERROR: ${element} is not defined in the document`)
+                return
+            } else {
+                console.log(`useDarkMode: ${element} is set.`);
+            }
         }
-    }, [elm])
+    }, [elm, debug])
 
     useEffect(() => {
         let theme = localStorage.getItem('theme')
