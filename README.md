@@ -77,6 +77,7 @@ You can pass to `useDarkMode` the following options:
 | darkModeClass  | string  | the class that should be given when dark mode                   | dark    |
 | lightModeClass | string  | the class that should be given when light mode                  | light   |
 | element        | string  | the selector of the element that the class should be applied to | body    |
+| debug          | boolean | should debug messages be shown in the console                   | false   |
 
 ```js
 useDarkMode({
