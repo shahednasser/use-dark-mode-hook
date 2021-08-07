@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react'
 
 export const useDarkMode = function ({initialValue = false, darkModeClass = 'dark', lightModeClass = 'light', element = 'body'} = {}) {
     const [isDarkMode, setDarkMode] = useState(initialValue)
-    const elm = document.querySelector(element)
+    const [elm, setElm] = useState(null)
 
     const toggleDarkMode = function (on = true) {
         const theme = on ? darkModeClass : lightModeClass
-        if (!elm.classList.contains(theme)) {
+        if (elm && !elm.classList.contains(theme)) {
             elm.classList.add(theme)
             const oppositeTheme = on ? lightModeClass : darkModeClass
             if (elm.classList.contains(oppositeTheme)) {
@@ -18,6 +18,12 @@ export const useDarkMode = function ({initialValue = false, darkModeClass = 'dar
             setDarkMode(on)
         }
     }
+
+    useEffect(() => {
+        if (document) {
+            setElm(document.querySelector(element));
+        }
+    }, [element, document])
 
     useEffect(() => {
         let theme = localStorage.getItem('theme')
